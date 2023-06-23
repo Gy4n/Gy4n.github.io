@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            dotNet调试技巧 | Hexo
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Hexo</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Gyan</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:Gy4n@protonmail.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/Gy4n" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/">dotNet调试技巧</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2023-06-01
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2023-06-02
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=dotNet调试技巧&url=https://gy4n.github.io/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/&pic=https://gy4n.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=dotNet调试技巧&url=https://gy4n.github.io/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/&via=Gyan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gy4n.github.io/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://gy4n.github.io/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://gy4n.github.io/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/&title=dotNet调试技巧" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Hexo&title=dotNet调试技巧&summary=&pics=https://gy4n.github.io/null&url=https://gy4n.github.io/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://gy4n.github.io/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/&text=dotNet调试技巧" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/dotNet/ >dotNet</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/Debug/ >Debug</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <p>介绍.NET平台下一些基础的调试技巧。</p>
+<span id="more"></span>
+
+<h1 id="dnspy-调试"><a href="#dnspy-调试" class="headerlink" title="dnspy 调试"></a>dnspy 调试</h1><h2 id="Module-Breakpoint"><a href="#Module-Breakpoint" class="headerlink" title="Module Breakpoint"></a>Module Breakpoint</h2><p><code>Module Breakpoint</code> 可以看作DLL断点，支持在程序集加载时断下。当新增程序集后，会在<code>Assembly Explorer</code>出现新加载在<strong>内存</strong>中的程序集。</p>
+<p><img src="/./dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/image-20230601170151971-1685610113802-1.png" alt="image-20230601170151971"></p>
+<h2 id="Class-Breakpoint"><a href="#Class-Breakpoint" class="headerlink" title="Class Breakpoint"></a>Class Breakpoint</h2><p>类断点，将整个类的所有方法全部下断点。</p>
+<p><img src="/./dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/image-20230601170831306.png" alt="image-20230601170831306"></p>
+<h2 id="Condition-Breakpoint-amp-amp-Log-BreakPoint"><a href="#Condition-Breakpoint-amp-amp-Log-BreakPoint" class="headerlink" title="Condition Breakpoint &amp;&amp; Log BreakPoint"></a>Condition Breakpoint &amp;&amp; Log BreakPoint</h2><p>输入框的内容可以为任意表达式，用<code>&#123;&#125;</code>描述表达式，如：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command = &#123;<span class="keyword">this</span>.command&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/image-20230602153208454.png" alt="image-20230602153208454"></p>
+<p>输出的内容在输出中中，可以使用文件函数将其记录在日志。</p>
+<p><img src="/./dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/image-20230602153559594.png" alt="image-20230602153559594"></p>
+<p>这个输入框还可以读取预定义的一些关键字。</p>
+<p><img src="/./dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/image-20230602171331115.png" alt="image-20230602171331115"></p>
+<h2 id="入口点"><a href="#入口点" class="headerlink" title="入口点"></a>入口点</h2><p>除开入口点外，<code>&lt;Module&gt;.cctor</code>是模块的加载点。这是.NET程序的重点关注对象。</p>
+<h2 id="禁用-NET程序集优化"><a href="#禁用-NET程序集优化" class="headerlink" title="禁用.NET程序集优化"></a>禁用.NET程序集优化</h2><p>当.NET程序集以调试器方式启动时，是默认关闭程序集优化的，但当以附加调试的情况调试时。</p>
+<h1 id="Windbg-调试"><a href="#Windbg-调试" class="headerlink" title="Windbg 调试"></a>Windbg 调试</h1><p>使用Windbg 可以非常方便的进行混合模式的调试，可以理解为，Windbg作为<code>Native</code>代码调试器，加载了<code>.NET</code>调试的功能。</p>
+<p>使用<code>.loadby sos clr</code> 加载托管调试。</p>
+<p>在此之前，需要明白一些数据结构</p>
+<p>.Net 数据结构的相互关系大致如下：</p>
+<ul>
+<li>每个 .Net 应用程序都运行在一个或多个应用程序域 (Domain) 中，每个应用程序域都是一个独立的执行环境，可以加载和卸载程序集。</li>
+<li>每个应用程序域都有一个基类 BaseDomain，它包含一些公共的数据结构和方法，例如 LoaderHeaps、ClassLoader、InterfaceVTableMapMgr 等。</li>
+<li>每个应用程序域都有一个 SystemDomain 的引用，SystemDomain 是一个单例类，它表示 CLR 的初始化状态和全局数据结构，例如 GlobalStringLiteralMap、HandleTable、GCHeap 等。</li>
+<li>SystemDomain 包含一个 SharedDomain 的引用，SharedDomain 是一个单例类，它表示所有应用程序域共享的数据结构，例如共享的 LoaderHeaps、共享的程序集等。</li>
+<li>每个应用程序域都有一个或多个程序集 (Assembly)，每个程序集都包含一组 IL 模块和元数据。每个程序集都有一个 ClassLoader 的实例，负责加载类型和方法。</li>
+<li>每个类型 (EEClass) 都有一个方法表 (MethodTable)，表示该类型的所有方法和字段。方法表包含指向方法描述符 (MethodDescriptor) 的指针，方法描述符表示方法的元数据信息和实现地址。方法表还包含接口映射表 (Interface Map)，表示该类型实现的接口和对应的方法表槽位。</li>
+<li>每个对象实例 (ObjectInstance) 都有一个指向其类型的方法表的指针。对象实例还包含其字段值和同步块索引 (SyncBlockIndex)，后者指向同步块条目 (SyncTableEntry)，用于支持线程同步和垃圾回收等功能。</li>
+</ul>
+<h2 id="已知类的代码定位"><a href="#已知类的代码定位" class="headerlink" title="已知类的代码定位"></a>已知类的代码定位</h2><p>对于已知类名，需要定位EEClass，对于完整的方法也可以使用这个命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!Name2EE DllName!ClassName</span><br></pre></td></tr></table></figure>
+
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">0:000&gt; !Name2EE System.Management.Automation.dll!System.Management.Automation.PowerShell</span><br><span class="line">Module:      00007ff9b5791000</span><br><span class="line">Assembly:    System.Management.Automation.dll</span><br><span class="line">Token:       0000000002000342</span><br><span class="line">MethodTable: 00007ff9b734f870</span><br><span class="line">EEClass:     00007ff9b5c13980</span><br><span class="line">Name:        System.Management.Automation.PowerShell</span><br></pre></td></tr></table></figure>
+
+<p>和：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">0:000&gt; !Name2EE mscorlib.dll!System.Threading.WaitHandle.WaitOne</span><br><span class="line">Module:      00007ffa0e721000</span><br><span class="line">Assembly:    mscorlib.dll</span><br><span class="line">Token:       0000000006003d68</span><br><span class="line">MethodDesc:  00007ffa0e908d98</span><br><span class="line">Name:        System.Threading.WaitHandle.WaitOne(Int32, Boolean)</span><br><span class="line">JITTED Code Address: 00007ffa0ece9c70</span><br><span class="line">-----------------------</span><br><span class="line">Token:       0000000006003d69</span><br><span class="line">MethodDesc:  00007ffa0e908da0</span><br><span class="line">Name:        System.Threading.WaitHandle.WaitOne(System.TimeSpan, Boolean)</span><br><span class="line">JITTED Code Address: 00007ffa0f57aed0</span><br><span class="line">-----------------------</span><br><span class="line">Token:       0000000006003d6a</span><br><span class="line">MethodDesc:  00007ffa0e908da8</span><br><span class="line">Name:        System.Threading.WaitHandle.WaitOne()</span><br><span class="line">JITTED Code Address: 00007ffa0ed0a040</span><br><span class="line">-----------------------</span><br><span class="line">Token:       0000000006003d6b</span><br><span class="line">MethodDesc:  00007ffa0e908db0</span><br><span class="line">Name:        System.Threading.WaitHandle.WaitOne(Int32)</span><br><span class="line">JITTED Code Address: 00007ffa0f57af30</span><br><span class="line">-----------------------</span><br><span class="line">Token:       0000000006003d6c</span><br><span class="line">MethodDesc:  00007ffa0e908db8</span><br><span class="line">Name:        System.Threading.WaitHandle.WaitOne(System.TimeSpan)</span><br><span class="line">JITTED Code Address: 00007ffa0f57af50</span><br><span class="line">-----------------------</span><br><span class="line">Token:       0000000006003d6d</span><br><span class="line">MethodDesc:  00007ffa0e908f50</span><br><span class="line">Name:        System.Threading.WaitHandle.WaitOne(Int64, Boolean)</span><br><span class="line">JITTED Code Address: 00007ffa0f57af70</span><br></pre></td></tr></table></figure>
+
+<p>点击<code>EEClass</code>后，可以dump出这个类的属性</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">0:000&gt; !DumpClass /d 00007ff9b5c13980</span><br><span class="line">Class Name:      System.Management.Automation.PowerShell</span><br><span class="line">mdToken:         0000000002000342</span><br><span class="line">File:            C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll</span><br><span class="line">Parent Class:    00007ffa0e722f68</span><br><span class="line">Module:          00007ff9b5791000</span><br><span class="line">Method Table:    00007ff9b734f870</span><br><span class="line">Vtable Slots:    5</span><br><span class="line">Total Method Slots:  16</span><br><span class="line">Class Attributes:    100101  </span><br><span class="line">Transparency:        Critical</span><br><span class="line">NumInstanceFields:   25</span><br><span class="line">NumStaticFields:     0</span><br><span class="line">              MT    Field   Offset                 Type VT     Attr            Value Name</span><br><span class="line">00007ffa0e74b698  4000edb       c0       System.Boolean  1 instance           isGetCommandMetadataSpecialPipeline</span><br><span class="line">00007ff9b734f810  4000edc        8 ...omation.PSCommand  0 instance           psCommand</span><br><span class="line">00007ff9b59216b0  4000edd       10 ...ment.Automation]]  0 instance           extraCommands</span><br><span class="line">00007ffa0e74b698  4000ede       c1       System.Boolean  1 instance           runningExtraCommands</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p>这其中有一个MT，MT是<code>Method Table</code>，是这个类的方法表：</p>
+<p>使用<code>!DumpMT -MD MTPointer</code> 可以打印出该表中的所有MD（Method Descriptor）</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">0:000&gt; !DumpMT -MD 00007ff9b734f870</span><br><span class="line">EEClass:         00007ff9b5c13980</span><br><span class="line">Module:          00007ff9b5791000</span><br><span class="line">Name:            System.Management.Automation.PowerShell</span><br><span class="line">mdToken:         0000000002000342</span><br><span class="line">File:            C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Management.Automation\v4.0_3.0.0.0__31bf3856ad364e35\System.Management.Automation.dll</span><br><span class="line">BaseSize:        0xe8</span><br><span class="line">ComponentSize:   0x0</span><br><span class="line">Slots in VTable: 149</span><br><span class="line">Number of IFaces in IFaceMap: 1</span><br><span class="line">--------------------------------------</span><br><span class="line">MethodDesc Table</span><br><span class="line">           Entry       MethodDesc    JIT Name</span><br><span class="line">00007ff9b68e70f0 00007ff9b5d30600 PreJIT System.Management.Automation.PowerShell.get_Commands()</span><br><span class="line">00007ff9b6148e30 00007ff9b5d310a8 PreJIT System.Management.Automation.PowerShell.AsPSPowerShellPipeline()</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p><code>MethodDesc</code> 是非常重要的数据结构，直接点击MethodDesc，可以展示出该方法的IL代码地址，以及JIT后的地址。</p>
+<p>Entry 即为方法的入口地址。</p>
+<p>如：</p>
+<p>这是直接<code>DumpMD</code>的结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0:000&gt; !DumpMD  00007ff9b5d310a8</span><br><span class="line">Method Name:  System.Management.Automation.PowerShell.AsPSPowerShellPipeline()</span><br><span class="line">Class:        00007ff9b5c13980</span><br><span class="line">MethodTable:  00007ff9b734f870</span><br><span class="line">mdToken:      0000000006002eb6</span><br><span class="line">Module:       00007ff9b5791000</span><br><span class="line">IsJitted:     yes</span><br><span class="line">CodeAddr:     00007ff9b68ee220</span><br><span class="line">Transparency: Critical</span><br></pre></td></tr></table></figure>
+
+<p>直接用这个地址使用命令<code>DumpIL</code>即可得到IL地址。<br>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0:000&gt; !DumpIL  00007ff9b5d310a8</span><br><span class="line">ilAddr = 00007ff9b629dafc</span><br><span class="line">IL_0000: ldstr &quot;PS_PowerShellPipeline&quot;</span><br><span class="line">IL_0005: call System.Management.Automation.InternalMISerialize::CreateCimInstance</span><br><span class="line">IL_000a: stloc.0 </span><br><span class="line">IL_000b: ldstr &quot;InstanceId&quot;</span><br><span class="line">IL_0010: ldarg.0</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p>对这个CodeAddr点击，这可以反汇编JIT的代码，使用<code>U</code>命令</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">0:000&gt; !U /d 00007ff9b68ee220</span><br><span class="line">preJIT generated code</span><br><span class="line">System.Management.Automation.PowerShell.AsPSPowerShellPipeline()</span><br><span class="line">Begin 00007ff9b68ee220, size 442</span><br><span class="line">&gt;&gt;&gt; 00007ff9`b68ee220 55              push    rbp</span><br><span class="line">00007ff9`b68ee221 4156            push    r14</span><br><span class="line">00007ff9`b68ee223 57              push    rdi</span><br><span class="line">00007ff9`b68ee224 56              push    rsi</span><br><span class="line">00007ff9`b68ee225 53              push    rbx</span><br><span class="line">00007ff9`b68ee226 4883ec50        sub     rsp,50h</span><br><span class="line">00007ff9`b68ee22a 488d6c2470      lea     rbp,[rsp+70h]</span><br><span class="line">00007ff9`b68ee22f 488bf1          mov     rsi,rcx</span><br><span class="line">00007ff9`b68ee232 488d7dc0        lea     rdi,[rbp-40h]</span><br><span class="line">00007ff9`b68ee236 b908000000      mov     ecx,8</span><br><span class="line">00007ff9`b68ee23b 33c0            xor     eax,eax</span><br><span class="line">00007ff9`b68ee23d f3ab            rep stos dword ptr [rdi]</span><br><span class="line">00007ff9`b68ee23f 488bce          mov     rcx,rsi</span><br><span class="line">00007ff9`b68ee242 488965b0        mov     qword ptr [rbp-50h],rsp</span><br><span class="line">00007ff9`b68ee246 488bf1          mov     rsi,rcx</span><br><span class="line">00007ff9`b68ee249 488b0db8ac15ff  mov     rcx,qword ptr [System_Management_Automation_ni+0x2b8f08 (00007ff9`b5a48f08)] (MT: Microsoft.Management.Infrastructure.CimInstance)</span><br><span class="line">00007ff9`b68ee250 ff151a7072ff    call    qword ptr [System_Management_Automation_ni+0x885270 (00007ff9`b6015270)]</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<h2 id="托管代码的调用堆栈"><a href="#托管代码的调用堆栈" class="headerlink" title="托管代码的调用堆栈"></a>托管代码的调用堆栈</h2><p>需要切换到托管线程，使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!clrstack</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!DumpStack</span><br></pre></td></tr></table></figure>
+
+<p>这个可以获得非托管和托管线程的代码。</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0:000&gt; !clrstack</span><br><span class="line">OS Thread Id: 0x36ec (0)</span><br><span class="line">        Child SP               IP Call Site</span><br><span class="line">000000a9266ed328 00007ffa36a64704 [HelperMethodFrame_1OBJ: 000000a9266ed328] System.Threading.WaitHandle.WaitOneNative(System.Runtime.InteropServices.SafeHandle, UInt32, Boolean, Boolean)</span><br><span class="line">000000a9266ed450 00007ffa0ece9ccc System.Threading.WaitHandle.InternalWaitOne(System.Runtime.InteropServices.SafeHandle, Int64, Boolean, Boolean)</span><br><span class="line">000000a9266ed480 00007ffa0ece9c9f System.Threading.WaitHandle.WaitOne(Int32, Boolean)</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象查看"><a href="#对象查看" class="headerlink" title="对象查看"></a>对象查看</h2><p>JIT的代码的调用规则和C代码编译的类似</p>
+<p>rcx为<code>this</code>类，对应到该类，使用<code>!do &lt;class addr&gt; </code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0:006&gt; !do 000001ece82fd368</span><br><span class="line">Name:        Microsoft.PowerShell.Commands.InvokeExpressionCommand</span><br><span class="line">MethodTable: 00007ff9dfe6b7d8</span><br><span class="line">EEClass:     00007ff9df3bcc58</span><br><span class="line">Size:        128(0x80) bytes</span><br><span class="line">File:        C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.PowerShell.Commands.Utility\v4.0_3.0.0.0__31bf3856ad364e35\Microsoft.PowerShell.Commands.Utility.dll</span><br><span class="line">Fields:</span><br><span class="line">              MT    Field   Offset                 Type VT     Attr            Value Name</span><br><span class="line">00007ff9b71e9548  4002971        8 ...n.ICommandRuntime  0 instance 000001ece82fd458 commandRuntime</span><br></pre></td></tr></table></figure>
+
+<p>点击value即可进一步Dump类中的属性</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 我是有底线的 --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/UEFI-MBR%E8%B0%83%E8%AF%95%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
+        <span>UEFI+MBR调试踩坑合集</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/dotNet%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dnspy-%E8%B0%83%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">dnspy 调试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-Breakpoint"><span class="toc-number">1.1.</span> <span class="toc-text">Module Breakpoint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Class-Breakpoint"><span class="toc-number">1.2.</span> <span class="toc-text">Class Breakpoint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Condition-Breakpoint-amp-amp-Log-BreakPoint"><span class="toc-number">1.3.</span> <span class="toc-text">Condition Breakpoint &amp;&amp; Log BreakPoint</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A5%E5%8F%A3%E7%82%B9"><span class="toc-number">1.4.</span> <span class="toc-text">入口点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%81%E7%94%A8-NET%E7%A8%8B%E5%BA%8F%E9%9B%86%E4%BC%98%E5%8C%96"><span class="toc-number">1.5.</span> <span class="toc-text">禁用.NET程序集优化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Windbg-%E8%B0%83%E8%AF%95"><span class="toc-number">2.</span> <span class="toc-text">Windbg 调试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%B2%E7%9F%A5%E7%B1%BB%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9A%E4%BD%8D"><span class="toc-number">2.1.</span> <span class="toc-text">已知类的代码定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%98%E7%AE%A1%E4%BB%A3%E7%A0%81%E7%9A%84%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88"><span class="toc-number">2.2.</span> <span class="toc-text">托管代码的调用堆栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.3.</span> <span class="toc-text">对象查看</span></a></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2023 - 2023 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Gyan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

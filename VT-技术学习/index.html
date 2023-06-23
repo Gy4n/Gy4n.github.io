@@ -1,6 +1,282 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> VT 技术学习 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="VT 技术学习 - Gyan"><meta name="keywords"><meta name="author" content="Gyan"><link rel="short icon" href="/"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://gy4n.github.io/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="./nothing.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">VT 技术学习</h1><div class="post-info">2023-02-05</div><div class="post-content"><h2 id="VT-技术"><a href="#VT-技术" class="headerlink" title="VT 技术"></a>VT 技术</h2><h3 id="0x00-VT-技术介绍"><a href="#0x00-VT-技术介绍" class="headerlink" title="0x00  VT 技术介绍"></a>0x00  VT 技术介绍</h3><h3 id="0x01-VT-环境搭建"><a href="#0x01-VT-环境搭建" class="headerlink" title="0x01 VT 环境搭建"></a>0x01 VT 环境搭建</h3><p>在最新的Windows环境上，可能需要关闭<code>Hyper-V</code>，才能在VMware的虚拟机配置-处理器-虚拟化引擎中选中<code>Intel VT-x/EPT</code></p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            VT 技术学习 | Hexo
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Hexo</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/icons/avatar.gif"/>
+                
+            </div>
+            <div class="sidebar-author-name">Gyan</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:Gy4n@protonmail.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://github.com/Gy4n" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">VT 技术学习</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2023-02-05
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2023-05-16
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=VT 技术学习&url=https://gy4n.github.io/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/&pic=https://gy4n.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=VT 技术学习&url=https://gy4n.github.io/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/&via=Gyan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gy4n.github.io/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=https://gy4n.github.io/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://gy4n.github.io/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/&title=VT 技术学习" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Hexo&title=VT 技术学习&summary=&pics=https://gy4n.github.io/null&url=https://gy4n.github.io/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=https://gy4n.github.io/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/&text=VT 技术学习" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/VT/ >VT</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <p>VT技术入门。</p>
+<span id="more"></span>
+
+<h3 id="0x00-VT-技术介绍"><a href="#0x00-VT-技术介绍" class="headerlink" title="0x00 VT 技术介绍"></a>0x00 VT 技术介绍</h3><h3 id="0x01-VT-环境搭建"><a href="#0x01-VT-环境搭建" class="headerlink" title="0x01 VT 环境搭建"></a>0x01 VT 环境搭建</h3><p>在最新的Windows环境上，可能需要关闭<code>Hyper-V</code>，才能在VMware的虚拟机配置-处理器-虚拟化引擎中选中<code>Intel VT-x/EPT</code></p>
 <p>如果开启了Virtualization Based Security（基于虚拟化的安全性），请先关闭它</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard /v EnableVirtualizationBasedSecurity /t REG_DWORD /d 0 /f</span><br></pre></td></tr></table></figure>
 
@@ -85,11 +361,11 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__vmx_vmwrite(CPU_BASED_VM_EXEC_CONTROL, VTAdjustExcuteControls(<span class="number">0</span>, MSR_IA32_VMX_PROCBASED_CTLS));</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>VM 退出控制 </p>
-<p>Intel <a href="mailto:&#51;&#x61;&#x40;&#x32;&#52;&#46;&#55;&#x2e;&#x31;">&#51;&#x61;&#x40;&#x32;&#52;&#46;&#55;&#x2e;&#x31;</a></p>
+<p>Intel <a href="mailto:&#x33;&#x61;&#64;&#x32;&#52;&#46;&#x37;&#46;&#x31;">&#x33;&#x61;&#64;&#x32;&#52;&#46;&#x37;&#46;&#x31;</a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__vmx_vmwrite(VM_EXIT_CONTROLS, VTAdjustExcuteControls(<span class="number">0</span>,MSR_IA32_VMX_EXIT_CTLS));</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>VM 进入控制</p>
-<p>Intel <a href="mailto:&#51;&#x61;&#64;&#50;&#52;&#x2e;&#55;&#46;&#49;">&#51;&#x61;&#64;&#50;&#52;&#x2e;&#55;&#46;&#49;</a></p>
+<p>Intel <a href="mailto:&#x33;&#97;&#x40;&#x32;&#x34;&#x2e;&#x37;&#x2e;&#x31;">&#x33;&#97;&#x40;&#x32;&#x34;&#x2e;&#x37;&#x2e;&#x31;</a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__vmx_vmwrite(VM_ENTRY_CONTROLS, VTAdjustExcuteControls(<span class="number">0</span>, MSR_IA32_VMX_ENTRY_CTLS));</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
@@ -112,4 +388,147 @@
 
 <h3 id="0x07-EPT"><a href="#0x07-EPT" class="headerlink" title="0x07 EPT"></a>0x07 EPT</h3><p>看了一下要重建页表我就不想看了。</p>
 <h3 id="0x08-代码"><a href="#0x08-代码" class="headerlink" title="0x08 代码"></a>0x08 代码</h3><p>这个代码魔改的周壑的<code>VT_Learn</code>，建议不要乱魔改，坑非常多。</p>
-</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/UEFI-MBR%E8%B0%83%E8%AF%95%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/" title="UEFI+MBR调试踩坑合集" class="prev">上一篇</a><a href="/fiddler%E8%AF%81%E4%B9%A6%E6%9C%89%E6%95%88%E6%9C%9F%E6%97%B6%E9%95%BF%E8%AE%BE%E7%BD%AE/" title="fiddler证书有效期时长设置" class="next">下一篇</a></div><div class="copyright"><p>© 2023 <a target="_blank">Gyan</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;"> </span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script></body></html>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 我是有底线的 --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/UEFI-MBR%E8%B0%83%E8%AF%95%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>UEFI+MBR调试踩坑合集</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2022%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91%E9%83%A8%E5%88%86%E9%A2%98%E7%9B%AEWriteup/">
+        <span>2022西湖论剑部分题目Writeup</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/VT-%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-VT-%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">0x00 VT 技术介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-VT-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">0x01 VT 环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-%E6%80%BB%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">0x02 总体流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-%E5%89%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">0x03 前置工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CPUID"><span class="toc-number">4.1.</span> <span class="toc-text">CPUID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#msr"><span class="toc-number">4.2.</span> <span class="toc-text">msr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CR4"><span class="toc-number">4.3.</span> <span class="toc-text">CR4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-VMXON"><span class="toc-number">5.</span> <span class="toc-text">0x04 VMXON</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8VMX%E6%89%A9%E5%B1%95"><span class="toc-number">5.1.</span> <span class="toc-text">启用VMX扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E9%85%8DVMXON-%E5%8C%BA%E5%9F%9F"><span class="toc-number">5.2.</span> <span class="toc-text">分配VMXON 区域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEVMXON%E5%8C%BA%E5%9F%9F"><span class="toc-number">5.3.</span> <span class="toc-text">设置VMXON区域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-VMCS"><span class="toc-number">6.</span> <span class="toc-text">0x05  VMCS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x06-VM-%E5%90%AF%E5%8A%A8"><span class="toc-number">7.</span> <span class="toc-text">0x06 VM 启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x06-VMExit"><span class="toc-number">8.</span> <span class="toc-text">0x06 #VMExit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x07-EPT"><span class="toc-number">9.</span> <span class="toc-text">0x07 EPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x08-%E4%BB%A3%E7%A0%81"><span class="toc-number">10.</span> <span class="toc-text">0x08 代码</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2023 - 2023 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Gyan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
